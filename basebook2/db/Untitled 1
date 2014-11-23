@@ -1,0 +1,9 @@
+create database basebook character set utf8 collate utf8_general_ci;
+
+create user 'basebook'@'localhost' identified by 'basebook';
+
+create user 'basebook'@'%' identified by 'basebook';
+
+grant all privileges on basebook.* to 'basebook'@localhost with grant option;
+
+grant all privileges on basebook.* to 'basebook'@'%' with grant option; 
