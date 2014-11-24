@@ -15,7 +15,7 @@ import servlets.dao.BoardDao;
 import servlets.domain.Board;
 
 @WebServlet("/list")
-public class boardListServlet extends GenericServlet {
+public class BoardListServlet extends GenericServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void service(ServletRequest request, ServletResponse response)
@@ -30,17 +30,7 @@ public class boardListServlet extends GenericServlet {
 		List<Board> boardList = boardDao.selectList();
 
 		
-//		HashMap<Integer, String> passwordMap = new HashMap<Integer, String>();
-/*		for (Board board : boardList) {
-			out.print(board.getContentNo() + " ");
-			out.print(board.getContentId() + " ");
 
-			out.print("<pre>" + board.getContentContent() + "</pre>");
-
-			out.print(board.getContentPassword() + " ");
-			out.print(board.getContentAvi() + " ");
-			out.print("</br>");
-		}*/
 
 		out.println("<!DOCTYPE html>");
 		out.println("<html>");
@@ -73,7 +63,6 @@ public class boardListServlet extends GenericServlet {
 		
 		for (Board board : boardList) {
 		
-//		passwordMap.put(board.getContentNo(), board.getContentPassword());
 			
 		out.println("<table class='"+board.getContentPassword()+"' id='"+"t"+board.getContentNo()+"'>");
 		out.println("<tr><th id='"+"i"+board.getContentNo()+"'>");

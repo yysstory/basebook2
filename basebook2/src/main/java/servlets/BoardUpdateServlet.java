@@ -14,7 +14,7 @@ import servlets.domain.Board;
 
 
 @WebServlet("/update")
-public class boardUpdateServlet extends GenericServlet {
+public class BoardUpdateServlet extends GenericServlet {
 	private static final long serialVersionUID = 1L;
        
 

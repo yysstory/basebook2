@@ -1,6 +1,9 @@
 package servlets;
 
+
 import java.io.IOException;
+
+import javafx.collections.SetChangeListener;
 
 import javax.servlet.GenericServlet;
 import javax.servlet.ServletException;
@@ -13,34 +16,33 @@ import servlets.dao.BoardDao;
 import servlets.domain.Board;
 
 
-@WebServlet("/delete")
-public class boardDeleteServlet extends GenericServlet {
+@WebServlet("/add")
+public class BoardAddServlet extends GenericServlet {
 	private static final long serialVersionUID = 1L;
-       
 
+
+	
 	public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
-		System.out.println("boardDeleteServlet 호출");
+		System.out.println("boardAddServlet서블릿 호출");
+		
+		Board board = new Board();
 		request.setCharacterEncoding("UTF-8");
+		board.setContentId(request.getParameter("id"));
+		board.setContentPassword(request.getParameter("password"));
+		board.setContentContent(request.getParameter("content"));
+		board.setContentAvi(request.getParameter("url"));
 		
 		BoardDao boardDao = (BoardDao) this.getServletContext().getAttribute("boardDao");
-		System.out.println(request.getParameter("id"));
-		String noid = request.getParameter("id").split(" ")[0].substring(3);
 		
-		
-		//No.22 id:앱등이
-		
-		int contentNo = Integer.parseInt(noid);
-		System.out.println(noid);
-		boardDao.delete(contentNo);
+		boardDao.insert(board);
 		
 		HttpServletResponse orginResponse = (HttpServletResponse)response;
 	    orginResponse.sendRedirect("/basebook2/list");
 		
-	
+
+		
+		
+		
 	}
-	
-	
-	
-	
 
 }
