@@ -31,7 +31,8 @@ public class BoardAddServlet extends GenericServlet {
 		board.setContentPassword(request.getParameter("password"));
 		board.setContentContent(request.getParameter("content"));
 		board.setContentAvi(request.getParameter("url"));
-		
+		board.setContentLike(0);
+		board.setContentUnlike(0);
 		BoardDao boardDao = (BoardDao) this.getServletContext().getAttribute("boardDao");
 		
 		boardDao.insert(board);

@@ -104,7 +104,16 @@ $("#form_btn1").click(function() {
 
 })
 
-
+$(".btn_like").click(function(){
+    $.post("/",
+    {
+      name:"Donald Duck",
+      city:"Duckburg"
+    },
+    function(data,status){
+      alert("Data: " + data + "\nStatus: " + status);
+    });
+  });
 
 
 /*

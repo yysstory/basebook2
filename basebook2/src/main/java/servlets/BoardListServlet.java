@@ -41,8 +41,6 @@ public class BoardListServlet extends GenericServlet {
 	    rd.include(request, response);
 		
 		
-		
-
 
 	}
 

@@ -39,7 +39,9 @@ public class BoardUpdateServlet extends GenericServlet {
 		
 		board.setContentPassword(request.getParameter("password"));
 		board.setContentContent(request.getParameter("content"));
-		board.setContentAvi(request.getParameter("url"));/*
+		board.setContentAvi(request.getParameter("url"));
+		
+		/*
 		board.setContentLike(Integer.parseInt(request.getParameter("like")));
 		board.setContentUnlike(Integer.parseInt(request.getParameter("unlike")));*/
 		

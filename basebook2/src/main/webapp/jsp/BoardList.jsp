@@ -35,7 +35,7 @@ List<Board> boardList =
 
 for (Board board : boardList) { %>
 
-<table class='<%=board.getContentPassword()%>>' id='t<%=board.getContentNo()%>'>
+<table class='<%=board.getContentPassword()%>' id='t<%=board.getContentNo()%>'>
 <tr><th id='i<%=board.getContentNo()%>'>
 <%=board.getContentId()%>
 <th></tr>
@@ -65,8 +65,8 @@ if(board.getContentAvi()!=""){
 <tr><td>
 <pre id='p<%=board.getContentNo()%>'><%=board.getContentContent()%></pre></td></tr>
 <tr id='iconCombine'><td>
-<span class='btn_like glyphicon glyphicon-thumbs-up' aria-hidden='true'>0</span>
-<span class='btn_unlke glyphicon glyphicon-thumbs-down' aria-hidden='true'>1</span>
+<span id=l<%=board.getContentNo()%> class='btn_like glyphicon glyphicon-thumbs-up' aria-hidden='true'><%=board.getContentLike()%></span>
+<span id=k<%=board.getContentNo()%> class='btn_unlke glyphicon glyphicon-thumbs-down' aria-hidden='true'><%=board.getContentUnlike()%></span>
 <span id=u<%=board.getContentNo()%> class='btn_update glyphicon glyphicon-pencil' aria-hidden='true'></span>
 <span id=d<%=board.getContentNo()%> class='btn_delete glyphicon glyphicon-remove' aria-hidden='true'></span>
 <span  class='btn_reply glyphicon glyphicon-user' aria-hidden='true'>0</span>

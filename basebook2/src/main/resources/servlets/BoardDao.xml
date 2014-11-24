@@ -29,8 +29,8 @@
 	</sql>
 
 	<insert id="insert" parameterType="Board">
-		INSERT INTO CONTENT(CO_ID,CO_PW,CO_CO,CO_AVI)
-		VALUES (#{contentId}, #{contentPassword}, #{contentContent},#{contentAvi})
+		INSERT INTO CONTENT(CO_ID,CO_PW,CO_CO,CO_AVI,CO_LIKE,CO_UNLIKE)
+		VALUES (#{contentId}, #{contentPassword}, #{contentContent},#{contentAvi},#{contentLike},#{contentUnlike})
 	</insert>
 
 
