@@ -29,19 +29,22 @@
 	</sql>
 
 	<insert id="insert" parameterType="Board">
-		INSERT INTO CONTENT(CO_ID,CO_PW,CO_CO,CO_AVI,CO_LIKE,CO_UNLIKE)
-		VALUES (#{contentId}, #{contentPassword}, #{contentContent},#{contentAvi},#{contentLike},#{contentUnlike})
+		INSERT INTO
+		CONTENT(CO_ID,CO_PW,CO_CO,CO_AVI,CO_LIKE,CO_UNLIKE)
+		VALUES
+		(#{contentId}, #{contentPassword},
+		#{contentContent},#{contentAvi},#{contentLike},#{contentUnlike})
 	</insert>
 
 
 	<delete id="delete" parameterType="int">
-		DELETE FROM CONTENT WHERE CO_NO=#{value}
+		DELETE FROM CONTENT WHERE
+		CO_NO=#{value}
 	</delete>
 
 
 	<select id="selectList" resultMap="boardMap">
 		<include refid="contentSelect" />
-
 	</select>
 
 
@@ -54,12 +57,23 @@
 		CO_AVI=#{contentAvi},
 		CO_LIKE=#{contentLike},
 		CO_UNLIKE=#{contentUnlike}
-		
-		
+
+
+		WHERE CO_NO=#{contentNo}
+	</update>
+
+	<update id="like" parameterType="Board">
+		UPDATE CONTENT SET
+		CO_LIKE=#{contentLike}
 		WHERE CO_NO=#{contentNo}
 	</update>
 
 
+	<update id="unlike" parameterType="Board">
+		UPDATE CONTENT SET
+		CO_UNLIKE=#{contentUnlike}
+		WHERE CO_NO=#{contentNo}
+	</update>
 	<!-- <select id="selectOne" parameterType="int" resultMap="productMap"> 
 		<include refid="productSelect"/> WHERE PNO=#{value} </select> -->
 </mapper>

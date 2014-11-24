@@ -104,16 +104,56 @@ $("#form_btn1").click(function() {
 
 })
 
-$(".btn_like").click(function(){
-    $.post("/",
+
+/*$(".btn_like").click(function(){ 	
+	console.log("like클릭");
+	var a1 = $(this).attr("id").substr(1, 2);
+	var v1 = $("l"+a1).val() +1 ;
+	
+    $.post("/like",
     {
-      name:"Donald Duck",
-      city:"Duckburg"
+      no : a1 ,
+      like: v1
     },
     function(data,status){
-      alert("Data: " + data + "\nStatus: " + status);
+    	$("l"+a1).html(v1);    
+    );
     });
-  });
+*/
+
+
+$(".btn_like").click(function(){
+	
+	var a1 = $(this).attr("id").substr(1, 2);
+	console.log($("#l"+a1).html());
+	var v1 = parseInt($("#l"+a1).html())+1 ;
+	$.post("/basebook2/like",{
+		no:a1,
+		like:v1
+	},function(){
+		
+		$("#l"+a1).html(v1);
+	})
+	
+});
+
+
+
+$(".btn_unlike").click(function(){
+	console.log("unlikez클릭");
+	var a1 = $(this).attr("id").substr(1, 2);
+	console.log($("#k"+a1).html());
+	var v1 = parseInt($("#k"+a1).html())+1 ;
+	$.post("/basebook2/unlike",{
+		no:a1,
+		unlike:v1
+	},function(data){
+		
+		$("#k"+a1).html(v1);
+		console.log(data);
+	})
+	
+});
 
 
 /*

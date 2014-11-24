@@ -9,6 +9,9 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
 import servlets.dao.BoardDao;
 import servlets.domain.Board;
 
@@ -32,6 +35,12 @@ public class BoardUpdateServlet extends GenericServlet {
 		System.out.println(request.getParameter("id").split(" ")[0].substring(3));
 	//	<center><iframe width="450" height="300" src="//www.youtube.com/embed/s1AwGAZltNU" frameborder="0" allowfullscreen=""></iframe></center>
 		
+		ApplicationContext appCtx =
+		        WebApplicationContextUtils.getWebApplicationContext(
+		            this.getServletContext());
+		    
+	 BoardDao boardDao = (BoardDao)appCtx.getBean("boardDao");
+		
 		
 		
 		board.setContentNo(Integer.parseInt(request.getParameter("id").split(" ")[0].substring(3)));
@@ -41,11 +50,13 @@ public class BoardUpdateServlet extends GenericServlet {
 		board.setContentContent(request.getParameter("content"));
 		board.setContentAvi(request.getParameter("url"));
 		
-		/*
-		board.setContentLike(Integer.parseInt(request.getParameter("like")));
-		board.setContentUnlike(Integer.parseInt(request.getParameter("unlike")));*/
 		
-		BoardDao boardDao = (BoardDao) this.getServletContext().getAttribute("boardDao");
+		board.setContentLike(Integer.parseInt(request.getParameter("like")));
+		board.setContentUnlike(Integer.parseInt(request.getParameter("unlike")));
+		
+		
+		
+		
 		boardDao.update(board);
 		
 		HttpServletResponse orginResponse = (HttpServletResponse)response;

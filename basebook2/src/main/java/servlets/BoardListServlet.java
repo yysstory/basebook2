@@ -11,6 +11,9 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
 import servlets.dao.BoardDao;
 import servlets.domain.Board;
 
@@ -25,8 +28,15 @@ public class BoardListServlet extends GenericServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 
-		BoardDao boardDao = (BoardDao) this.getServletContext().getAttribute(
-				"boardDao");
+		ApplicationContext appCtx =
+		        WebApplicationContextUtils.getWebApplicationContext(
+		            this.getServletContext());
+		    
+	 BoardDao boardDao = (BoardDao)appCtx.getBean("boardDao");
+		
+		
+		
+		
 		List<Board> boardList = boardDao.selectList();
 
 		

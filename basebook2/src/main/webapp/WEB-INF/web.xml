@@ -4,17 +4,25 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	version="3.1">
 	
-	
+	<!-- 
 	<context-param>
 		<param-name>mybatisConfig</param-name>
 		<param-value>servlets/mybatis-config.xml</param-value>
+	</context-param> -->
+
+  <!-- 스프링의 ContextLoaderListener가 사용할 설정파일 경로정보 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:servlets/application-context.xml</param-value>
 	</context-param>
-<!-- 
+	
+	<!-- 리스너 등록하기 -->
 	<listener>
-	  <listener-class>servlets.ContextLoaderListener</listener-class>
-	</listener> 
-	 -->
-		
+	  <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+
+
 <!-- 	
 	<servlet>
 		<servlet-name>Hello</servlet-name>
