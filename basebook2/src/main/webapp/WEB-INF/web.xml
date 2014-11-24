@@ -9,11 +9,11 @@
 		<param-name>mybatisConfig</param-name>
 		<param-value>servlets/mybatis-config.xml</param-value>
 	</context-param>
-
+<!-- 
 	<listener>
 	  <listener-class>servlets.ContextLoaderListener</listener-class>
 	</listener> 
-	
+	 -->
 		
 <!-- 	
 	<servlet>

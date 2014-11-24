@@ -47,7 +47,7 @@ public class boardUpdateServlet extends GenericServlet {
 		boardDao.update(board);
 		
 		HttpServletResponse orginResponse = (HttpServletResponse)response;
-	    orginResponse.sendRedirect("/basebook/list");
+	    orginResponse.sendRedirect("/basebook2/list");
 
 	
 	}

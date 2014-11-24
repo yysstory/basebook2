@@ -34,7 +34,7 @@ public class boardDeleteServlet extends GenericServlet {
 		boardDao.delete(contentNo);
 		
 		HttpServletResponse orginResponse = (HttpServletResponse)response;
-	    orginResponse.sendRedirect("/basebook/list");
+	    orginResponse.sendRedirect("/basebook2/list");
 		
 	
 	}

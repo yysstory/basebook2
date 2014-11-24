@@ -22,7 +22,7 @@ import servlets.dao.BoardDao;
  *      각 JSP 실행할 때마다 생성되고 실행 완료되면 제거됨.
  * 
  */
-//@WebListener
+@WebListener
 public class ContextLoaderListener implements ServletContextListener {
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {

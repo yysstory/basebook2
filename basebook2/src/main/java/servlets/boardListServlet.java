@@ -131,8 +131,8 @@ public class boardListServlet extends GenericServlet {
 
 		out.println("</section >");
 		
-		out.println("	<header>BASEBOOK</header>");
-		out.println("	<footer>BASEBOOK</footer>");
+		out.println("	<header>&nbsp; &nbsp; &nbsp; &nbsp;  BASEBOOK</header>");
+		out.println("	<footer></br>@bit.co.kr 윤용식,김광철,김원기</footer>");
 
 		out.println("	<script src='js/jquery-1.11.1.js'></script>");
 		out.println("    <script src='js/bootstrap.min.js'></script>");
