@@ -2,11 +2,10 @@ package servlets;
 
 import java.io.IOException;
 
-import javax.servlet.GenericServlet;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.context.ApplicationContext;
@@ -16,12 +15,12 @@ import servlets.dao.BoardDao;
 import servlets.domain.Board;
 
 @WebServlet("/add")
-public class BoardAddServlet extends GenericServlet {
+public class BoardAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public void service(ServletRequest request, ServletResponse response)
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		System.out.println("boardAddServlet서블릿 호출");
 		request.setCharacterEncoding("UTF-8");
 
@@ -39,8 +38,7 @@ public class BoardAddServlet extends GenericServlet {
 		BoardDao boardDao = (BoardDao) appCtx.getBean("boardDao");
 		boardDao.insert(board);
 
-		HttpServletResponse orginResponse = (HttpServletResponse) response;
-		orginResponse.sendRedirect("/basebook2/list");
+		response.sendRedirect("/basebook2/list");
 
 	}
 

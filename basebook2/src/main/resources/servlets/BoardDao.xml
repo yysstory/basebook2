@@ -51,9 +51,7 @@
 		CO_ID=#{contentId},
 		CO_PW=#{contentPassword},
 		CO_CO=#{contentContent},
-		CO_AVI=#{contentAvi},
-		CO_LIKE=#{contentLike},
-		CO_UNLIKE=#{contentUnlike}
+		CO_AVI=#{contentAvi}
 
 
 		WHERE CO_NO=#{contentNo}

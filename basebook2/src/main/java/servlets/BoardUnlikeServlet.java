@@ -12,28 +12,28 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import servlets.dao.BoardDao;
+import servlets.domain.Board;
 
-@WebServlet("/delete")
-public class BoardDeleteServlet extends HttpServlet {
+@WebServlet("/unlike")
+public class BoardUnlikeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("boardDeleteServlet 호출");
-		
+
+		System.out.println("boardUnlikeServlet 호출");
+
+		Board board = new Board();
 		request.setCharacterEncoding("UTF-8");
 
+		board.setContentNo(Integer.parseInt(request.getParameter("no")));
+		board.setContentUnlike(Integer.parseInt(request.getParameter("unlike")));
 		ApplicationContext appCtx = WebApplicationContextUtils
 				.getWebApplicationContext(this.getServletContext());
 
 		BoardDao boardDao = (BoardDao) appCtx.getBean("boardDao");
 
-		System.out.println(request.getParameter("id"));
-		String noid = request.getParameter("id").split(" ")[0].substring(3);
-
-
-		boardDao.delete(Integer.parseInt(noid));
-		response.sendRedirect("/basebook2/list");
+		boardDao.unlike(board);
 
 	}
 
