@@ -32,7 +32,7 @@ public class BoardDeleteServlet extends GenericServlet {
 		System.out.println(request.getParameter("id"));
 		String noid = request.getParameter("id").split(" ")[0].substring(3);
 
-		// No.22 id:앱등이
+
 
 		int contentNo = Integer.parseInt(noid);
 		System.out.println(noid);

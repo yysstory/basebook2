@@ -45,7 +45,7 @@ public class BoardListServlet extends GenericServlet {
 	    
 	    response.setContentType("text/html;charset=UTF-8");
 	    
-	    // 결과를 출력하기 위해 JSP에게 위임한다.
+
 	    RequestDispatcher rd = request.getRequestDispatcher(
 	        "/jsp/BoardList.jsp");
 	    rd.include(request, response);

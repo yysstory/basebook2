@@ -3,13 +3,10 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- <sql> 태그 사용하기 => 자주 사용되는 SQL문은 별도로 정의해두고 포함한다. -->
 
 <mapper namespace="servlets.BoardDao">
 
-	<!-- 객체의 컬럼과 프로퍼티를 연결한다. -->
 	<resultMap type="Board" id="boardMap">
-		<!-- PK 컬럼은 id 태그를 사용하여 지정한다. -->
 		<id column="CO_NO" property="contentNo" />
 		<result column="CO_ID" property="contentId" />
 		<result column="CO_PW" property="contentPassword" />
@@ -74,8 +71,7 @@
 		CO_UNLIKE=#{contentUnlike}
 		WHERE CO_NO=#{contentNo}
 	</update>
-	<!-- <select id="selectOne" parameterType="int" resultMap="productMap"> 
-		<include refid="productSelect"/> WHERE PNO=#{value} </select> -->
+
 </mapper>
 
 

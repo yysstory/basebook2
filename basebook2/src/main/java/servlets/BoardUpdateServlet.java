@@ -29,11 +29,9 @@ public class BoardUpdateServlet extends GenericServlet {
 		Board board = new Board();
 		request.setCharacterEncoding("UTF-8");
 		
-		//No.22 id:앱등이
 		System.out.println(request.getParameter("id"));
 		System.out.println(request.getParameter("id").split(" ")[0]);
 		System.out.println(request.getParameter("id").split(" ")[0].substring(3));
-	//	<center><iframe width="450" height="300" src="//www.youtube.com/embed/s1AwGAZltNU" frameborder="0" allowfullscreen=""></iframe></center>
 		
 		ApplicationContext appCtx =
 		        WebApplicationContextUtils.getWebApplicationContext(
