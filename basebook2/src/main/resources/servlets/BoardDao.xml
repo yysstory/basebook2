@@ -19,6 +19,9 @@
 		<result column="CO_IP" property="ContentIp" />
 	</resultMap>
 
+
+
+
 	<sql id="contentSelect">
 		SELECT CO_NO,CO_ID, CO_PW, CO_CO, CO_IMG,
 		CO_AVI,CO_LIKE,CO_UNLIKE,CO_DATE,CO_IP
@@ -52,7 +55,6 @@
 		CO_PW=#{contentPassword},
 		CO_CO=#{contentContent},
 		CO_AVI=#{contentAvi}
-
 
 		WHERE CO_NO=#{contentNo}
 	</update>

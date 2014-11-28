@@ -1,17 +1,17 @@
 package servlets;
 
 public class testServlet {
-
+	//http://www.youtube.com/watch?v=N5wzkQvzp4c
 	
-	String url = "http://youtu.be/1WRuSEPKS0I";
-	String [] tokens = url.split("/");
-		
+	static String url = "//http://www.youtube.com/watch?v=N5wzkQvzp4c";
+	//String [] tokens = url.replaceAll(".", " ").replaceAll("/"," ").trim().split(" ");
+	
+	static String tokens = url.replaceAll(".", " ").replaceAll("/"," ").trim();
 		
 	public static void main(String[] args) {
 		testServlet ts = new testServlet();
-		for(int i=1;i<ts.tokens.length;i++){
-		System.out.println(ts.tokens[i]);
-		}
+
+		System.out.println(tokens);
 	}
 
 }

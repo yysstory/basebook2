@@ -34,9 +34,12 @@ public class BoardListServlet extends HttpServlet {
 		BoardDao boardDao = (BoardDao) appCtx.getBean("boardDao");
 
 		List<Board> boardList = boardDao.selectList();
-
+		
 		request.setAttribute("boardList", boardList);
 
+		
+		
+		
 		response.setContentType("text/html;charset=UTF-8");
 
 		RequestDispatcher rd = request.getRequestDispatcher("/jsp/BoardList.jsp");

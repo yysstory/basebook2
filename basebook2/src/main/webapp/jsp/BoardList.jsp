@@ -29,21 +29,17 @@
 		</form>
 	</div>
 	<div class=container>
-		<section> 
-		
-		
-		<c:forEach items="${boardList}" var="board">
-		
-			<table class='${board.contentPassword}'
-				id='t${board.contentNo}'>
+		<section> <c:forEach items="${boardList}" var="board">
+
+			<table class='${board.contentPassword}' id='t${board.contentNo}'>
 				<tr>
 					<th id='i${board.contentNo}'>${board.contentId}
 					<th>
 				</tr>
 				<tr>
 					<td>
-						<%
-							if (board.getContentAvi() != "") {
+	
+						<%-- 	if (board.getContentAvi() != "") {
 									String[] urlSplit = board.getContentAvi().split("\\.");
 
 									if (urlSplit[urlSplit.length - 1].equals("png")
@@ -70,9 +66,8 @@
 											}
 										}
 									}
-								}
-						%>
-
+								} --%>
+						
 
 					</td>
 				</tr>
